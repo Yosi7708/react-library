@@ -9,7 +9,6 @@ import {useOktaAuth} from "@okta/okta-react";
 import ReviewRequestModel from "../../models/ReviewRequestModel";
 
 export const BookCheckoutPage = () => {
-
     const {authState} = useOktaAuth();
 
     const [book, setBook] = useState<BookModel>();
