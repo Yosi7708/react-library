@@ -3,6 +3,7 @@ import {useOktaAuth} from "@okta/okta-react";
 import {Redirect} from "react-router-dom";
 import {AdminMessages} from "./components/AdminMessages";
 import {AddNewBook} from "./components/AddNewBook";
+import {ChangeQuantityOfBooks} from "./components/ChangeQuantityOfBooks";
 
 export const ManageLibraryPage = () => {
 
@@ -26,9 +27,10 @@ export const ManageLibraryPage = () => {
         setChangeQuantityOfBooksClick(false);
         setMessageClick(true);
     }
-   if (authState?.accessToken?.claims.userType === undefined) {
-       return <Redirect to="/home"/>
-   }
+
+    if (authState?.accessToken?.claims.userType === undefined) {
+        return <Redirect to="/home"/>
+    }
 
     return (
         <div className="container">
@@ -65,7 +67,7 @@ export const ManageLibraryPage = () => {
                         </div>
                         <div className="tab-pane fade" id="nav-quantity" role="tabpanel"
                              aria-labelledby="nav-quantity-tab">
-                            {changeQuantityOfBooksClick ? <>Change Quantity</> : <></>}
+                            {changeQuantityOfBooksClick ? <ChangeQuantityOfBooks/> : <></>}
                         </div>
                         <div className="tab-pane fade" id="nav-messages" role="tabpanel"
                              aria-labelledby="nav-messages-tab">
