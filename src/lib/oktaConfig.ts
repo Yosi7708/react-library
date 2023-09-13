@@ -4,7 +4,8 @@ export const oktaConfig = {
     redirectUri: 'https://localhost:3000/login/callback',
     scopes: ['openid', 'profile', 'email'],
     pkce: true,
-    disableHttpsCheck: true
-
+    disableHttpsCheck: true,
+    features: {
+        registration: true // Enable self-service registration
+    }
 };
-
