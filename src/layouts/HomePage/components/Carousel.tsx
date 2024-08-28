@@ -68,18 +68,18 @@ export const Carousel = () => {
                     <div className="carousel-item active">
                         <div className="row d-flex justify-content-center align-items-center">
                             { books.slice(0, 3).map(book => (
-                                    <ReturnBook  book={book} key={book.id}/>
+                                <ReturnBook  book={book} key={book.id}/>
                             ))}
                         </div>
                     </div>
-                    <div className="carousel-item active">
+                    <div className="carousel-item">
                         <div className="row d-flex justify-content-center align-items-center">
                             { books.slice(3, 6).map(book => (
                                 <ReturnBook  book={book} key={book.id}/>
                             ))}
                         </div>
                     </div>
-                    <div className="carousel-item active">
+                    <div className="carousel-item">
                         <div className="row d-flex justify-content-center align-items-center">
                             { books.slice(6, 9).map(book => (
                                 <ReturnBook  book={book} key={book.id}/>
@@ -87,6 +87,7 @@ export const Carousel = () => {
                         </div>
                     </div>
                 </div>
+
                 <button className="carousel-control-prev" type="button"
                         data-bs-target="#carouselExampleControls" data-bs-slide="prev">
                     <span className="carousel-control-prev-icon" aria-hidden="true"></span>
