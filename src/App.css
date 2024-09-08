@@ -54,4 +54,26 @@ background-color: #0e76a8 ;
  }
 
 
+.chat-bubble {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #007bff;
+    color: white;
+    padding: 10px;
+    border-radius: 50%;
+    cursor: pointer;
+    z-index: 1000;
+}
 
+.chat-window {
+    position: fixed;
+    bottom: 0;
+    right: 20px;
+    width: 400px;
+    height: 300px;
+    background-color: white;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    border-radius: 8px;
+    z-index: 1000;
+}

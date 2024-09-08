@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './App.css';
 import {Navbar} from "./layouts/NavbarAndFooter/Navbar";
 import {Footer} from "./layouts/NavbarAndFooter/Footer";
@@ -15,10 +15,13 @@ import {ShelfPage} from "./layouts/ShelfPage/ShelfPage";
 import {MessagesPage} from "./layouts/MessagesPage/MessagesPage";
 import {ManageLibraryPage} from "./layouts/ManageLibraryPage/ManageLibraryPage";
 import {PaymentPage} from "./layouts/PaymentPage/PaymentPage";
+import ChatBubble from "./layouts/HomePage/components/ChatBubble";
+import Chat from  "./layouts/Utils/Chat";
 
 const oktaAuth = new OktaAuth(oktaConfig);
 
 export const App = () => {
+    const [isChatOpen, setIsChatOpen] = useState(false); // State to manage chat visibility
 
     const customAuthHandler = () => {
         history.push('/login');
@@ -30,6 +33,9 @@ export const App = () => {
         history.replace(toRelativeUrl(originalUri || '/', window.location.origin));
     }
 
+    const handleChatToggle = () => {
+        setIsChatOpen(!isChatOpen);
+    };
 
     return (
         <div className="d-flex flex-column min-vh-100">
@@ -65,8 +71,12 @@ export const App = () => {
                     </Switch>
                 </div>
                 <Footer/>
+                {/* Toggle chat bubble visibility */}
+                <ChatBubble onClick={handleChatToggle} />
+
+                {/* Display the chat window only if isChatOpen is true */}
+                {isChatOpen && <Chat onClose={handleChatToggle} />}
             </Security>
         </div>
     );
 }
-
