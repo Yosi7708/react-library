@@ -24,7 +24,14 @@ interface Message {
 
 const Chat: React.FC<{ onClose: () => void }> = ({ onClose }) => {
     const [typing, setTyping] = useState<boolean>(false);
-    const [messages, setMessages] = useState<Message[]>([]);
+    const [messages, setMessages] = useState<Message[]>([
+        {
+            message: "Hello! How can I help you today?",
+            sender: "ChatGPT",
+            direction: "incoming",
+            position: "single",
+        }
+    ]);
     const { authState } = useOktaAuth();
     const [books, setBooks] = useState<BookModel[]>([]);
     const [histories, setHistories] = useState<HistoryModel[]>([]);
@@ -72,7 +79,7 @@ const Chat: React.FC<{ onClose: () => void }> = ({ onClose }) => {
             const allBookTitles = books.map(book => book.title).join(', ');
             const readBookTitles = histories.map(history => history.title).join(', ');
 
-            const systemMessageContent = `בספריה יש את הספרים הבאים: ${allBookTitles}. אני קראתי את הספרים ${readBookTitles}. תדבר איתי כמו ספרן מקצועי.`;
+            const systemMessageContent = `בספריה יש את הספרים הבאים: ${allBookTitles}. אני קראתי את הספרים ${readBookTitles}. תדבר איתי כאילו אתה ספרן מקצועי בספריית LibraNet שלנו.`;
 
             setSystemMessage({
                 role: "system",
